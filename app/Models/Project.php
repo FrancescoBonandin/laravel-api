@@ -19,6 +19,14 @@ class Project extends Model
 
     ];
 
+    protected $appends=[
+        'Full_Img'
+    ];
+
+    public function getFullImgAttribute(){
+        return asset("/storage/$this->img");
+    }
+
     public function type() {
         return $this->belongsTo(Type::class);
         
