@@ -18,12 +18,12 @@ class ProjectController extends Controller
        ]);
     }
 
-    // public function show(String $id)
-    // {
-    //    $project=Project::all();
+    public function show(String $id)
+    {
+       $project=Project::with('type','technologies')->firstOrFail($id);
 
-    //    return response()->json([
-    //     'data'=>$project,
-    //    ]);
-    // }
+       return response()->json([
+        'data'=>$project,
+       ]);
+    }
 }
